@@ -3,7 +3,7 @@ import Hero from "./components/hero/Hero";
 export default function Home() {
   return (
     <main>
-      <section className="mt-20">
+      <section className="mt-10">
         <div className="flex items-center justify-center">
           <Hero />
         </div>

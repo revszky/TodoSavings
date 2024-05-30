@@ -10,6 +10,7 @@ import {
   IconWallet,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import Explanation from "./Explanation";
 
 const iconData = [
   {
@@ -50,7 +51,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="w-full flex flex-col items-center justify-center">
       <div className="p-4 text-center font-extrabold">
         <h1 className="text-6xl">Manage your income quickly,</h1>
         <h2 className="text-6xl">modernly and more efficiently.</h2>
@@ -64,7 +65,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mb-20">
         <IconActivityHeartbeat className="w-40 h-32 stroke-[0.1]" />
         <Link
           href="/set-savings"
@@ -75,28 +76,11 @@ const Hero = () => {
         <IconActivity className="w-40 h-32 stroke-[0.1]" />
       </div>
 
-      <div className="relative w-full">
-        <div className="w-full flex items-start justify-between">
-          {iconData.map((item) => (
-            <div
-              key={item.id}
-              className="p-2 flex flex-col items-center justify-center cursor-pointer"
-              onClick={() => handleToggle(item.id)}
-            >
-              {item.icon}
-              {activeId === item.id && (
-                <div className="max-w-[300px] w-full p-2 text-center absolute top-full">
-                  <p>{item.description}</p>
-                </div>
-              )}
-
-              <div className="max-w-[250px] p-2 text-center">
-                <h3 className="text-lg font-bold">{item.title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Explanation
+        iconData={iconData}
+        activeId={activeId}
+        handleToggle={handleToggle}
+      />
     </div>
   );
 };
