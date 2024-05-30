@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 interface IconData {
   id: number;
@@ -9,13 +9,40 @@ interface IconData {
 
 interface Props {
   iconData: IconData[];
-  activeId: number | null;
-  handleToggle: (id: number) => void;
+  activeId: number | null | undefined;
+  handleToggle: (id: number | null) => void;
 }
 
 const Explanation: React.FC<Props> = ({ iconData, activeId, handleToggle }) => {
+  const descriptionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        descriptionRef.current &&
+        !descriptionRef.current.contains(event.target as Node)
+      ) {
+        handleToggle(null);
+      }
+    };
+
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        handleToggle(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleToggle]);
+
   return (
-    <div className="w-full px-32">
+    <div className="w-full px-32" ref={descriptionRef}>
       <div className="w-full flex items-start justify-between relative">
         {iconData.map((item) => (
           <div
