@@ -4,10 +4,8 @@ import React from "react";
 const page = () => {
   return (
     <main>
-      <section>
-        <div>
-          <Savings />
-        </div>
+      <section className="my-6">
+        <Savings />
       </section>
     </main>
   );

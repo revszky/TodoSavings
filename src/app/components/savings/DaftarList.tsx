@@ -22,7 +22,7 @@ const DaftarList: React.FC<DaftarListProps> = ({
 }) => {
   return (
     <div
-      className={`max-w-[300px] md:max-w-[400px] w-full flex flex-col items-center justify-center my-10 md:my-0 ${
+      className={`max-w-[300px] md:max-w-[400px] w-full flex flex-col items-center md:items-start justify-center my-10 md:my-0 ${
         disabled ? "opacity-50 pointer-events-none" : ""
       }`}
     >
