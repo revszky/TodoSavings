@@ -16,29 +16,21 @@ const iconData = [
     id: 1,
     icon: <IconWallet className="w-14 h-14 stroke-1" />,
     title: "Fill your wallet",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente distinctio placeat velit repudiandae voluptatem recusandae repellendus?",
   },
   {
     id: 2,
     icon: <IconStairs className="w-14 h-14 stroke-1 rotate-45" />,
     title: "Set your spending target",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente distinctio placeat velit repudiandae voluptatem recusandae repellendus?",
   },
   {
     id: 3,
     icon: <IconListDetails className="w-14 h-14 stroke-1" />,
     title: "Make a detailed list of expenses",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente distinctio placeat velit repudiandae voluptatem recusandae repellendus?",
   },
   {
     id: 4,
     icon: <IconTrendingUp className="w-14 h-14 stroke-1" />,
     title: "Results of all total expenses",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente distinctio placeat velit repudiandae voluptatem recusandae repellendus?",
   },
 ];
 
@@ -58,7 +50,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="flex items-center justify-center mb-20">
+      <div className="flex items-center justify-center">
         <IconActivityHeartbeat className="w-full md:w-40 h-32 stroke-[0.1]" />
         <Link
           href="/set-savings"
@@ -69,7 +61,7 @@ const Hero = () => {
         <IconActivity className="w-full md:w-40 h-32 stroke-[0.1]" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 2xlgap-10">
+      <div className="grid grid-cols-2 xl:grid-cols-4 2xlgap-10">
         {iconData.map((item) => (
           <div
             key={item.id}
@@ -79,7 +71,6 @@ const Hero = () => {
             <div className="p-2 text-center">
               <h3>{item.title}</h3>
             </div>
-            <div className="max-w-xs p-4 text-center">{item.description}</div>
           </div>
         ))}
       </div>
